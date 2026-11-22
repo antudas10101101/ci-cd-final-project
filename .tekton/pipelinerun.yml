@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: oc-pipeline-run
+spec:
+  pipelineRef:
+    name: oc-pipeline
+  params:
+    - name: repo-url
+      value: https://github.com/antudas10101101/ci-cd-final-project
+  workspaces:
+    - name: output
+      persistentVolumeClaim:
+        claimName: oc-lab-pvc
